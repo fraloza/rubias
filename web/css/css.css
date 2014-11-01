@@ -1,0 +1,133 @@
+ .nav a{
+        color:#428bca; 
+ }
+.dur{
+	width: 90px;
+}
+.fech{
+	width: 100px;
+	border: 1px solid skyblue;
+	border-radius: 10px 10px 10px 10px;
+	text-align: center;
+	color: green;
+}
+
+.descripcion_u{
+	width: 540px;
+}
+
+.agregar_t { 
+  color: #FFFFFF; 
+  background-color: #7D038B; 
+  border-color: #FFF; 
+  border-radius: 13px;
+  width:170px;
+  height:30px;
+} 
+ 
+.agregar_t:hover, 
+.agregar_t:focus, 
+.agregar_t:active, 
+.agregar_t.active, 
+.open .dropdown-toggle.agregar_t { 
+  color: #FFFFFF; 
+  background-color: #49247A; 
+  border-color: #130269; 
+} 
+ 
+.agregar_t:active, 
+.agregar_t.active, 
+.open .dropdown-toggle.agregar_t { 
+  background-image: none; 
+} 
+ 
+.agregar_t.disabled, 
+.agregar_t[disabled], 
+fieldset[disabled] .agregar_t, 
+.agregar_t.disabled:hover, 
+.agregar_t[disabled]:hover, 
+fieldset[disabled] .agregar_t:hover, 
+.agregar_t.disabled:focus, 
+.agregar_t[disabled]:focus, 
+fieldset[disabled] .agregar_t:focus, 
+.agregar_t.disabled:active, 
+.agregar_t[disabled]:active, 
+fieldset[disabled] .agregar_t:active, 
+.agregar_t.disabled.active, 
+.agregar_t[disabled].active, 
+fieldset[disabled] .agregar_t.active { 
+  background-color: #7D038B; 
+  border-color: #130269; 
+} 
+ 
+.agregar_t .badge { 
+  color: #7D038B; 
+  background-color: #FFFFFF;
+}
+
+/* A*/
+#alk{
+  background-color: #8B1596;
+}
+/* B*/
+
+/* C*/
+.canck{
+  background-color: #8B1596;
+}
+/* D*/
+
+.duracion_u{
+  width: 100px;
+}
+  
+  
+/* E*/
+
+/* F*/
+
+/* G*/
+
+/* H*/
+
+/* I*/
+
+/* J*/
+
+/* K*/
+
+/* L*/
+
+/* M*/
+
+/* N*/
+
+/* O*/
+
+/* P*/
+
+/* Q*/
+
+/* R*/
+
+/* S*/
+
+/* T*/
+
+.textk{
+  width:20%;
+}
+
+
+
+/* U*/
+
+/* V*/
+
+/* W*/
+
+/* X*/
+
+/* Y*/
+
+/* Z*/
