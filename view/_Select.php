@@ -11,10 +11,11 @@ class="form-control" style="width: 100%;" >
         <?php }  ?>
     <?php } ?>
 </select>
+<input type="hidden" id="idsemeestreacademicoescondido" name="idsemeestreacademicoescondido" />
 
 <?php }else{?>
 <select name="<?php echo $name; ?>" id="<?php echo $id; ?>" <?php echo $disabled; ?>  class="form-control" 
-style="width: 16%;" >
+style="width: 84%;" >
     <option value="">......</option>
     <?php foreach ($rows as $key => $value) { ?>
         <?php if ($code != $value[0] ) { ?>
@@ -27,4 +28,3 @@ style="width: 16%;" >
 </select>
 
 <?php } ?>
-<input type="hidden" id="idsemeestreacademicoescondido" name="idsemeestreacademicoescondido" />

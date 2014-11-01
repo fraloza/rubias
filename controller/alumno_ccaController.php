@@ -122,6 +122,29 @@ class alumno_ccaController extends Controller {
         $view->setLayout('../template/Vacia.php');
         $view->render();
     }
+    
+    public function buscar_a() {
+        if (!isset($_GET['p'])) {$_GET['p'] = 1;}
+        $obj = new alumno_cca();
+        $data = array();
+        if (!isset($_GET['q'])) {$_GET['q'] = "";}
+        if (!isset($_GET['p'])) {$_GET['p'] = "";}
+        if (!isset($_GET['criterio'])) {$_GET['criterio'] = "dni";}
+        $data['data']=$obj->buscar_a($_GET['q'], $_GET['p'], $_GET['criterio']);
+        echo "<pre>"; print_r($data);
+        exit();
+        $data['query'] = $_GET['q'];
+        $data['pag'] = $this->Pagination(array('rows' => $data['data']['rowspag'], 'url' => 'index.php?controller=alumno_cca&action=buscar_a', 'query' => $_GET['q']));
+        $cols = array("Id","Nombres", "Apellidop","Apellidom", "Identificacion","Sexo");
+        $opt = array("dni" => "DNI", "nombres" =>"NOMBRE");
+        $data['grilla'] = $this->grilla("alumno_cca", $cols, $data['data']['rows'], $opt, $data['pag'], false, false, true, true);
+        
+        $view = new View();
+        $view->setData($data);
+        $view->setTemplate('../view/alumno_cca/_Lista.php');
+        $view->setLayout('../template/Vacia.php');
+        $view->render();
+    }
 
 }
 ?>

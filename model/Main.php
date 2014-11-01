@@ -60,9 +60,17 @@ class Main {
     }
 
     function getList() {
-        $query = "SELECT * FROM {$this->table} ";
-
+        if(isset($this->fecha)) {
+        $sth = $this->db->prepare("SELECT * FROM {$this->table} WHERE '{$this->fecha}' BETWEEN fecha_inicio AND fecha_termino");
+        } else {
         $sth = $this->db->prepare("SELECT * FROM {$this->table}");
+        }
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+    
+    function cursos() {
+        $sth = $this->db->prepare("SELECT a.descripcion, d.nombres, d.apellidos FROM {$this->table} as a INNER JOIN comision_cca as c ON c.idcomision=a.idcomision INNER JOIN docente_cca as d ON d.iddocente=c.iddocente WHERE '{$this->fecha}' BETWEEN c.fecha_inicio AND c.fecha_termino");
         $sth->execute();
         return $sth->fetchAll();
     }

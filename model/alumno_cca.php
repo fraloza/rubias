@@ -111,5 +111,39 @@ class alumno_cca extends Main{
         
         return $data;
     }
+    
+    function buscar_a($query,$p,$c) 
+    {
+            $sql = "    SELECT idalumno, nombres, apellidop, apellidom , dni, sexo FROM (
+                        SELECT 
+                        nombres as nombres, 
+                        apellidop as apellidop, 
+                        apellidom as apellidom, 
+                        dni as dni, 
+                        sexo as sexo,
+                        1 as parametro 
+                        FROM alumno_cca
+                        UNION ALL
+                        SELECT 
+                        NombreAlumno as nombres, 
+                        ApellidoPaterno as apellidop, 
+                        ApellidoMaterno as apellidom, 
+                        NumDocumento as dni, 
+                        Sexo as sexo,
+                        2 as parametro 
+                        FROM alumnos)
+                        AS alumnon
+                        WHERE ".$c. " like :query";
+            //die($sql);
+              
+        $param = array(array('key'=>':query' , 'value'=>"%$query%" , 'type'=>'STR' ));
+        $data['total'] = $this->getTotal( $sql, $param );
+        /*var_dump($data['total']);
+        exit();*/
+        $data['rows'] =  $this->getRow($sql, $param , $p );        
+        $data['rowspag'] = $this->getRowPag($data['total'], $p ); 
+        
+        return $data;
+    }
 }
 ?>

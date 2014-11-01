@@ -103,6 +103,9 @@ class Controller {
     
         $obj = new Main();
         $obj->table = $p['table'];
+        if(isset($p['date'])) {
+            $obj->fecha = $p['date'];
+        }
         $data = array();
 
         $data['rows'] = $obj->getList();
@@ -112,7 +115,23 @@ class Controller {
         $data['disabled'] = $p['disabled'];
         $view = new View();
         $view->setData($data);
+        if(isset($p['date'])) {
+        $view->setTemplate('../view/_Select1.php');
+        } else {
         $view->setTemplate('../view/_Select.php');
+        }
+        return $view->renderPartial();
+    }
+    
+    public function curso($p) {
+        $obj = new Main();
+        $obj->table = $p['table'];
+        $obj->fecha = $p['date'];
+        $data = array();
+        $data['rows'] = $obj->cursos();
+        $view = new View();
+        $view->setData($data);
+        $view->setTemplate('../view/_Curso.php');
         return $view->renderPartial();
     }
 	public function Select_ajax_string_prov($p) {

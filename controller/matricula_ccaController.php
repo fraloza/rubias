@@ -30,7 +30,7 @@ class matricula_ccaController extends Controller {
         $obj = $obj->edit($_GET['id']);
         $data['obj'] = $obj;
         $data['nomalumno'] = $this->Select(array('id'=>'idalumno','name'=>'nombres','table'=>'vista_alumno_cca','code'=>$obj->idalumno));
-        $data['comision'] = $this->Select(array('id'=>'idcomision','name'=>'idcomision','table'=>'comision_cca','code'=>$obj->idcomision));
+        $data['comision'] = $this->Select(array('id'=>'idcomision','name'=>'idcomision','table'=>'comision_cca','code'=>$obj->idcomision,'date'=>date("Y-m-d")));
         $view->setData($data);
         $view->setTemplate( '../view/matricula_cca/_Form.php' );
         $view->setLayout( '../template/Layout.php' );
@@ -88,7 +88,8 @@ class matricula_ccaController extends Controller {
         $data = array();
         $view = new View();
         $data['nomalumno'] = $this->Select(array('id'=>'idalumno','name'=>'idalumno','table'=>'vista_alumno_cca','code'=>$obj->idalumno));
-        $data['comision'] = $this->Select(array('id'=>'idcomision','name'=>'idcomision','table'=>'comision_cca','code'=>$obj->idcomision));
+        $data['asignatura'] = $this->Curso(array('table'=>'asignatura_cca','date'=>date("Y-m-d")));
+        $data['comision'] = $this->Select(array('id'=>'idcomision','name'=>'idcomision','table'=>'comision_cca','code'=>$obj->idcomision,'date'=>date("Y-m-d"),'disabled'=>'disabled'));
         $view->setData($data);
         $view->setTemplate( '../view/matricula_cca/_Form.php' );
         $view->setLayout( '../template/Layout.php' );
