@@ -89,7 +89,7 @@ class matricula_ccaController extends Controller {
         $view = new View();
         $data['nomalumno'] = $this->Select(array('id'=>'idalumno','name'=>'idalumno','table'=>'vista_alumno_cca','code'=>$obj->idalumno));
         $data['asignatura'] = $this->Curso(array('table'=>'asignatura_cca','date'=>date("Y-m-d")));
-        $data['comision'] = $this->Select(array('id'=>'idcomision','name'=>'idcomision','table'=>'comision_cca','code'=>$obj->idcomision,'date'=>date("Y-m-d"),'disabled'=>'disabled'));
+        $data['comision'] = $this->Select(array('id'=>'idcomision','name'=>'idcomision','table'=>'comision_cca','code'=>$obj->idcomision,'date'=>date("Y-m-d"),'readonly'=>'readonly'));
         $view->setData($data);
         $view->setTemplate( '../view/matricula_cca/_Form.php' );
         $view->setLayout( '../template/Layout.php' );

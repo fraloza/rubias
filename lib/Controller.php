@@ -113,6 +113,7 @@ class Controller {
         $data['id'] = $p['id'];
         $data['code'] = $p['code'];
         $data['disabled'] = $p['disabled'];
+        $data['readonly'] = $p['readonly'];
         $view = new View();
         $view->setData($data);
         if(isset($p['date'])) {

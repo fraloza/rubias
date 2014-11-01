@@ -112,25 +112,25 @@ class alumno_cca extends Main{
         return $data;
     }
     
-    function buscar_a($query,$p,$c) 
+    function buscara($query,$p,$c) 
     {
             $sql = "    SELECT idalumno, nombres, apellidop, apellidom , dni, sexo FROM (
                         SELECT 
+                        idalumno as idalumno,
                         nombres as nombres, 
                         apellidop as apellidop, 
                         apellidom as apellidom, 
                         dni as dni, 
-                        sexo as sexo,
-                        1 as parametro 
+                        sexo as sexo
                         FROM alumno_cca
                         UNION ALL
                         SELECT 
+                        CodigoAlumno as idalumno,
                         NombreAlumno as nombres, 
                         ApellidoPaterno as apellidop, 
                         ApellidoMaterno as apellidom, 
                         NumDocumento as dni, 
-                        Sexo as sexo,
-                        2 as parametro 
+                        Sexo as sexo
                         FROM alumnos)
                         AS alumnon
                         WHERE ".$c. " like :query";
